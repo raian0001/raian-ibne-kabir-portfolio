@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raian Ibne Kabir | Software Development Student &amp; Visual Storyteller</title>
+<meta name="description" content="Portfolio of Raian Ibne Kabir, a software development student and visual storyteller based in Dhaka, Bangladesh. Explore web development, photography, and video work.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raian Ibne Kabir | Software Development Student &amp; Visual Storyteller">
+<meta property="og:description" content="Portfolio of Raian Ibne Kabir, a software development student and visual storyteller based in Dhaka, Bangladesh. Explore web development, photography, and video work.">
+<meta property="og:image" content="images/portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>
+  (() => {
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    const theme = savedTheme === 'light' || savedTheme === 'dark'
+      ? savedTheme
+      : 'dark';
+    document.documentElement.dataset.theme = theme;
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="preloader" aria-hidden="true">
+  <div class="pre-loader-line">
+    <svg class="liquid-logo" viewBox="0 0 360 240" role="img" aria-label="RK">
+      <defs>
+        <mask id="rkLogoMask">
+          <rect width="360" height="240" fill="black"/>
+          <text x="180" y="184" text-anchor="middle" font-family="Space Grotesk, Syne, Arial, sans-serif" font-size="172" font-weight="700" letter-spacing="-10" fill="white">RK</text>
+        </mask>
+      </defs>
+      <rect class="logo-base" width="360" height="240" mask="url(#rkLogoMask)"/>
+      <g class="logo-liquid" mask="url(#rkLogoMask)">
+        <path class="logo-wave logo-wave-back" d="M-60 118 Q0 96 60 118 T180 118 T300 118 T420 118 V260 H-60Z"/>
+        <path class="logo-wave logo-wave-front" d="M-60 128 Q0 150 60 128 T180 128 T300 128 T420 128 V260 H-60Z"/>
+      </g>
+    </svg>
+    <div class="pre-bar"><span id="preFill"></span></div>
+  </div>
+  <div class="pre-status" aria-hidden="true">
+    <span id="preText">0%</span>
+    <span class="pre-dots"><i></i><i></i><i></i></span>
+  </div>
+</div>
+
+<div id="progress"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a href="#home" class="brand">RK<span>.</span></a>
+  <nav id="menu" aria-label="Main">
+    <a id="navAbout" href="#about">About</a>
+    <a id="navEducation" href="#education">Education</a>
+    <a id="navSkills" href="#skills">Skills</a>
+    <a id="navProjects" href="#projects">Projects</a>
+    <a id="navCreative" href="#creative">Creative</a>
+    <a id="navContact" href="#contact">Contact</a>
+  </nav>
+  <div class="utility-controls"><button id="languageToggle" class="utility-btn" type="button" aria-label="Switch language">বাংলা</button><button id="themeToggle" class="utility-btn" type="button" aria-label="Switch color theme" title="Toggle light mode">☀</button></div>
+  <a id="navContactCTA" href="#contact" class="btn btn-sm magnetic">Let's talk</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow reveal"><span class="dot"></span> Software Development &amp; Visual Media</p>
+      <h1 class="reveal">Hello, I’m <span class="grad">Raian Ibne Kabir</span></h1>
+      <p class="typed reveal">I am a <span id="typed"></span><span class="caret">|</span></p>
+      <p class="lead reveal">I am a software development student and visual storyteller based in Dhaka, Bangladesh. I build responsive web applications and create polished visual content, combining technical problem-solving with thoughtful design.</p>
+      <div class="cta reveal">
+        <a id="heroPrimaryCTA" href="#projects" class="btn magnetic">View my work</a>
+        <a id="heroSecondaryCTA" href="#contact" class="btn btn-ghost magnetic">Contact me</a>
+      </div>
+      <div class="socials reveal">
+        <a id="heroLinkedIn" href="https://linkedin.com/in/raian0001" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5H3.2V21h3.3V8.5ZM4.85 3A1.93 1.93 0 1 0 4.85 6.86 1.93 1.93 0 0 0 4.85 3ZM21 13.9c0-3.76-2-5.51-4.67-5.51a4.02 4.02 0 0 0-3.65 2.01V8.5H9.35V21h3.33v-6.18c0-1.63.31-3.21 2.33-3.21 1.99 0 2.02 1.86 2.02 3.31V21H21v-7.1Z"/></svg><span>LinkedIn</span></a>
+        <a id="heroInstagram" href="https://instagram.com/raian.0001" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg><span>Instagram</span></a>
+        <a id="heroEmail" href="mailto:raiankabir106@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Email</span></a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="orbit o1"><b>C++</b></div>
+      <div class="orbit o2"><b>JS</b></div>
+      <div class="orbit o3"><b>SQL</b></div>
+      <div class="orbit o4"><b>4K</b></div>
+      <div class="portrait tilt" data-tilt>
+        <img src="images/portrait.jpg" alt="Portrait of Raian Ibne Kabir">
+        <span class="initials">RK</span>
+        <div class="ring"></div>
+      </div>
+      <div class="chip c1">GPA 5.00 · SSC &amp; HSC</div>
+      <div class="chip c2">Dhaka, BD</div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <p class="kicker reveal">01 — About</p>
+    <h2 class="reveal">Thoughtful code. <span class="grad">Purposeful visuals.</span></h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I am currently studying at Daffodil International University, where I am developing skills in software development and digital media. My interests include JavaScript and C++ development, SQL databases, interface design, photography, and video production.</p>
+        <p>I value clear requirements, maintainable code, reliable performance, and thoughtful visual design. I enjoy applying these principles to practical projects and collaborative work.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat glass"><b data-count="3">0</b><small>Three GPA 5.00 scores</small></div>
+        <div class="stat glass"><b id="projectCount" data-count="5">0</b><small>Portfolio projects</small></div>
+        <div class="stat glass"><b data-count="10" data-suffix="+">0</b><small>Tools &amp; technologies</small></div>
+        <div class="stat glass"><b data-count="4" data-suffix="K">0</b><small>Video quality</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="container">
+    <p class="kicker reveal">02 — Education</p>
+    <h2 class="reveal">Academic <span class="grad">journey</span></h2>
+    <div class="timeline" id="timeline">
+      <div class="line"><i id="lineFill"></i></div>
+
+      <article class="t-item reveal">
+        <span class="node"></span>
+        <div class="glass card tilt" data-tilt>
+          <span class="tag">Primary Education Completion (PEC)</span>
+          <h3>Shahid Carat Academy</h3>
+          <p class="meta">Tangail</p>
+          <div class="gpa"><b>GPA 5.00</b><span>Academic distinction</span></div>
+        </div>
+      </article>
+
+      <article class="t-item reveal">
+        <span class="node"></span>
+        <div class="glass card tilt" data-tilt>
+          <span class="tag">Secondary School Certificate (SSC)</span>
+          <h3>Gazipur Shaheen Carat Academy</h3>
+          <p class="meta">Gazipur</p>
+          <div class="gpa"><b>GPA 5.00</b><span>Perfect score</span></div>
+        </div>
+      </article>
+
+      <article class="t-item reveal">
+        <span class="node"></span>
+        <div class="glass card tilt" data-tilt>
+          <span class="tag">Higher Secondary Certificate (HSC)</span>
+          <h3>Rajendrapur Cantonment Public School &amp; College</h3>
+          <p class="meta">Rajendrapur</p>
+          <div class="gpa"><b>GPA 5.00</b><span>Perfect score</span></div>
+        </div>
+      </article>
+
+      <article class="t-item reveal current">
+        <span class="node pulse"></span>
+        <div class="glass card tilt" data-tilt>
+          <span class="tag">University · Currently studying</span>
+          <h3>Daffodil International University</h3>
+          <p class="meta">Dhaka · Building skills in software &amp; creative media</p>
+          <div class="gpa"><b>Ongoing</b><span>Currently enrolled</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="certificates-section" id="certificatesSection" hidden>
+      <h3 id="certificatesTitle">Certificates</h3>
+      <div class="certificates-grid" id="certificateList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container">
+    <p class="kicker reveal">03 — Skills</p>
+    <h2 class="reveal">Technical and <span class="grad">creative skills</span></h2>
+    <div class="tabs reveal" role="tablist">
+      <button class="tab active" data-tab="code" role="tab">Programming</button>
+      <button class="tab" data-tab="creative" role="tab">Creative</button>
+    </div>
+    <div class="skill-panel active" id="tab-code">
+      <div class="skill-grid">
+        <div class="skill glass reveal"><div class="skill-top"><span>C++</span><em data-pct="85">0%</em></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="skill glass reveal"><div class="skill-top"><span>JavaScript</span><em data-pct="88">0%</em></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="skill glass reveal"><div class="skill-top"><span>SQL &amp; Databases</span><em data-pct="80">0%</em></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill glass reveal"><div class="skill-top"><span>Web Architecture</span><em data-pct="82">0%</em></div><div class="bar"><i data-w="82"></i></div></div>
+        <div class="skill glass reveal"><div class="skill-top"><span>Node.js &amp; APIs</span><em data-pct="80">0%</em></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill glass reveal"><div class="skill-top"><span>UI Design · Figma</span><em data-pct="84">0%</em></div><div class="bar"><i data-w="84"></i></div></div>
+      </div>
+      <p class="note reveal">I continue to expand my knowledge of programming languages and tools.</p>
+    </div>
+    <div class="skill-panel" id="tab-creative">
+      <div class="skill-grid">
+        <div class="skill glass"><div class="skill-top"><span>Videography · 4K</span><em data-pct="90">0%</em></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="skill glass"><div class="skill-top"><span>Photography</span><em data-pct="88">0%</em></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="skill glass"><div class="skill-top"><span>Premiere Pro</span><em data-pct="88">0%</em></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="skill glass"><div class="skill-top"><span>After Effects</span><em data-pct="80">0%</em></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill glass"><div class="skill-top"><span>Lightroom</span><em data-pct="86">0%</em></div><div class="bar"><i data-w="86"></i></div></div>
+        <div class="skill glass"><div class="skill-top"><span>Video Editing</span><em data-pct="90">0%</em></div><div class="bar"><i data-w="90"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <p class="kicker reveal">04 — Projects</p>
+    <h2 class="reveal">Selected <span class="grad">concepts</span></h2>
+    <p class="lead reveal">Projects exploring product design, AI, software architecture, and visual storytelling. Each project is labeled with its current status.</p>
+    <div class="project-showcase">
+      <div class="project-preview glass" id="projectPreview" aria-hidden="true">
+        <div class="project-visual is-active" data-project-visual="0">
+          <div class="preview-window">
+            <div class="preview-toolbar"><b>DF</b><span>DEVFLOW / OVERVIEW</span><i></i></div>
+            <div class="preview-dashboard">
+              <div class="preview-sidebar"><i></i><i></i><i></i><i></i></div>
+              <div class="preview-columns">
+                <div><small>IN PROGRESS</small><b></b><b></b></div>
+                <div><small>REVIEW</small><b></b><b></b></div>
+                <div><small>DONE</small><b></b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-visual" data-project-visual="1">
+          <div class="preview-window preview-chat">
+            <div class="preview-toolbar"><b>AI</b><span>SYNTH / ASSISTANT</span><i></i></div>
+            <div class="preview-bubble">How can I help with your next idea?</div>
+            <div class="preview-bubble is-reply"><i></i><i></i><i></i></div>
+            <div class="preview-input">Ask Synth anything <b>↑</b></div>
+          </div>
+        </div>
+        <div class="project-visual" data-project-visual="2">
+          <div class="preview-network">
+            <span class="network-line line-one"></span><span class="network-line line-two"></span><span class="network-line line-three"></span>
+            <b class="network-node node-api">API</b><b class="network-node node-db">DB</b><b class="network-node node-ui">UI</b><b class="network-node node-auth">AUTH</b>
+          </div>
+        </div>
+        <div class="project-visual" data-project-visual="3">
+          <div class="preview-film">
+            <div class="film-image"><span>FRAME<br>STORY</span></div>
+            <div class="film-controls"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="film-timeline"><b></b><b></b><b></b></div>
+          </div>
+        </div>
+        <div class="project-visual" data-project-visual="4">
+          <div class="preview-window preview-code">
+            <div class="preview-toolbar"><b>&gt;_</b><span>MATRIX CORE / TERMINAL</span><i></i></div>
+            <div class="code-lines"><b>01</b><span></span><b>02</b><span></span><b>03</b><span></span><b>04</b><span></span><b>05</b><span></span><b>06</b><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-list">
+        <article class="project project-step glass reveal is-active" data-project="0" data-project-step="0"><span class="num">01</span><h3>DevFlow</h3><p>A developer workflow dashboard concept for managing tasks, deployments, and team activity.</p><div class="tags"><span>JavaScript</span><span>UI</span></div><span class="project-open" aria-hidden="true">↗</span></article>
+        <article class="project project-step glass reveal" data-project="1" data-project-step="1"><span class="num">02</span><h3>Synth AI</h3><p>An AI assistant interface concept designed around clear conversations and practical tools.</p><div class="tags"><span>AI</span><span>Node.js</span></div><span class="project-open" aria-hidden="true">↗</span></article>
+        <article class="project project-step glass reveal" data-project="2" data-project-step="2"><span class="num">03</span><h3>Nexus Stack</h3><p>A full-stack architecture concept connecting APIs, databases, and a responsive front end.</p><div class="tags"><span>SQL</span><span>Architecture</span></div><span class="project-open" aria-hidden="true">↗</span></article>
+        <article class="project project-step glass reveal" data-project="3" data-project-step="3"><span class="num">04</span><h3>Frame Story</h3><p>A cinematic storytelling concept focused on 4K video and photography.</p><div class="tags"><span>Premiere</span><span>4K</span></div><span class="project-open" aria-hidden="true">↗</span></article>
+        <article class="project project-step glass reveal" data-project="4" data-project-step="4"><span class="num">05</span><h3>Matrix Core</h3><p>A systems programming concept exploring performance and low-level C++ engineering.</p><div class="tags"><span>C++</span><span>Systems</span></div><span class="project-open" aria-hidden="true">↗</span></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL SHOWCASE -->
+<section class="story-showcase" id="story">
+  <div class="story-height">
+    <div class="story-sticky">
+      <div class="story-heading reveal">
+        <p class="kicker">05 — Process</p>
+        <h2>From idea to <span class="grad">impact</span></h2>
+      </div>
+      <div class="story-grid">
+        <aside class="story-copy">
+          <article class="story-slide is-active" data-story-slide="0">
+            <span class="story-number">01</span>
+            <h3 data-story-title>Think with clarity</h3>
+            <div class="story-line"></div>
+            <p data-story-description>I break complex ideas into practical systems, clear requirements, and focused user experiences.</p>
+          </article>
+          <article class="story-slide" data-story-slide="1">
+            <span class="story-number">02</span>
+            <h3 data-story-title>Build with precision</h3>
+            <div class="story-line"></div>
+            <p data-story-description>I connect front-end, APIs, and databases with clean code, reliable architecture, and useful interactions.</p>
+          </article>
+          <article class="story-slide" data-story-slide="2">
+            <span class="story-number">03</span>
+            <h3 data-story-title>Create lasting polish</h3>
+            <div class="story-line"></div>
+            <p data-story-description>I finish every project with thoughtful motion, visual storytelling, and attention to the smallest details.</p>
+          </article>
+        </aside>
+        <div class="story-preview" aria-hidden="true">
+          <div class="story-visual is-active" data-story-visual="0">
+            <div class="story-window story-planning">
+              <div class="story-toolbar"><b>RK</b><span>DISCOVERY / PLAN</span><i></i></div>
+              <div class="story-board">
+                <div><small>DEFINE</small><b></b><b></b></div>
+                <div><small>DESIGN</small><b></b><b></b></div>
+                <div><small>DELIVER</small><b></b></div>
+              </div>
+            </div>
+          </div>
+          <div class="story-visual" data-story-visual="1">
+            <div class="story-window story-stack">
+              <div class="story-toolbar"><b>&lt;/&gt;</b><span>FULL-STACK / SYSTEM</span><i></i></div>
+              <div class="story-stack-grid">
+                <span>UI</span><b></b><span>API</span><b></b><span>DATA</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-visual" data-story-visual="2">
+            <div class="story-window story-final">
+              <div class="story-toolbar"><b>4K</b><span>FINAL / STORY</span><i></i></div>
+              <div class="story-frame"><span>DETAIL<br>MATTERS</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE -->
+<section id="creative" class="section">
+  <div class="container">
+    <p class="kicker reveal">06 — Creative</p>
+    <h2 class="reveal">Behind the <span class="grad">lens</span></h2>
+    <div class="creative-grid">
+      <div class="c-card glass tilt reveal" data-tilt><div class="c-ico">🎬</div><h3>Videography</h3><p>I produce 4K videos with an emphasis on lighting, motion, and storytelling.</p></div>
+      <div class="c-card glass tilt reveal" data-tilt><div class="c-ico">📷</div><h3>Photography</h3><p>I capture portraits, locations, and moments with a consistent visual style.</p></div>
+      <div class="c-card glass tilt reveal" data-tilt><div class="c-ico">✂️</div><h3>Post-production</h3><p>I edit video in Premiere Pro, create motion graphics in After Effects, and grade colour in Lightroom.</p></div>
+      <div class="c-card glass tilt reveal" data-tilt><div class="c-ico">🎨</div><h3>Interface design</h3><p>I design interfaces and layouts in Figma using consistent visual systems.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<dialog id="contact" class="contact-drawer" aria-labelledby="contactTitle">
+  <button class="contact-close" id="contactClose" type="button" aria-label="Close contact panel">×</button>
+  <div class="container contact-grid">
+    <div class="reveal">
+      <p class="kicker">07 — Contact</p>
+      <h2 id="contactTitle">Let's build <span class="grad">something great</span></h2>
+      <p class="lead">For professional inquiries, project opportunities, or collaboration proposals, please send a message. Submissions are delivered to the private admin inbox.</p>
+      <ul class="contact-list">
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><div><b>Email</b><a id="contactEmail" href="mailto:raiankabir106@gmail.com">raiankabir106@gmail.com</a></div></li>
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5H3.2V21h3.3V8.5ZM4.85 3A1.93 1.93 0 1 0 4.85 6.86 1.93 1.93 0 0 0 4.85 3ZM21 13.9c0-3.76-2-5.51-4.67-5.51a4.02 4.02 0 0 0-3.65 2.01V8.5H9.35V21h3.33v-6.18c0-1.63.31-3.21 2.33-3.21 1.99 0 2.02 1.86 2.02 3.31V21H21v-7.1Z"/></svg></span><div><b>LinkedIn</b><a id="contactLinkedIn" href="https://linkedin.com/in/raian0001" target="_blank" rel="noopener">linkedin.com/in/raian0001</a></div></li>
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><div><b>Instagram</b><a id="contactInstagram" href="https://instagram.com/raian.0001" target="_blank" rel="noopener">instagram.com/raian.0001</a></div></li>
+        <li><span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b>Location</b><span id="contactLocation">Dhaka, Bangladesh</span></div></li>
+      </ul>
+    </div>
+    <form id="contactForm" class="glass form reveal" novalidate>
+      <label><span id="contactNameLabel">Name</span><input name="name" required minlength="2" maxlength="80" autocomplete="name"></label>
+      <label><span id="contactEmailLabel">Email</span><input name="email" type="email" required maxlength="160" autocomplete="email"></label>
+      <label><span id="contactSubjectLabel">Subject</span><input name="subject" maxlength="120"></label>
+      <label><span id="contactMessageLabel">Message</span><textarea name="message" rows="5" required minlength="10" maxlength="3000"></textarea></label>
+      <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn magnetic" type="submit" id="sendBtn">Send message</button>
+      <p class="form-msg" id="formMsg" role="status"></p>
+    </form>
+  </div>
+</dialog>
+<section class="section resume-section" id="resumeSection" hidden>
+  <div class="container resume-content">
+    <div><p class="kicker">Résumé</p><h2 id="resumeTitle">Résumé &amp; CV</h2></div>
+    <a class="btn magnetic" id="resumeDownload" href="#" target="_blank" rel="noopener">Download my résumé</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-connect">
+    <div>
+      <p class="footer-invite" id="footerInvite">Have a project, idea or collaboration in mind?</p>
+      <a href="#contact" class="btn btn-sm magnetic" id="footerCTA">Discuss an opportunity</a>
+    </div>
+    <div class="footer-direct">
+      <a id="footerEmail" href="mailto:raiankabir106@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Email</span></a>
+      <a id="footerLinkedIn" href="https://linkedin.com/in/raian0001" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5H3.2V21h3.3V8.5ZM4.85 3A1.93 1.93 0 1 0 4.85 6.86 1.93 1.93 0 0 0 4.85 3ZM21 13.9c0-3.76-2-5.51-4.67-5.51a4.02 4.02 0 0 0-3.65 2.01V8.5H9.35V21h3.33v-6.18c0-1.63.31-3.21 2.33-3.21 1.99 0 2.02 1.86 2.02 3.31V21H21v-7.1Z"/></svg><span>LinkedIn</span></a>
+      <a id="footerInstagram" href="https://instagram.com/raian.0001" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg><span>Instagram</span></a>
+    </div>
+  </div>
+  <p class="footer-copyright">© <span id="year"></span> <span id="footerName">Raian Ibne Kabir</span></p>
+</footer>
+
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<!-- Project modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box glass" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal-close" id="mClose" aria-label="Close">×</button>
+    <span class="tag" id="mTag"></span>
+    <h3 id="mTitle"></h3>
+    <p id="mText"></p>
+    <ul id="mList"></ul>
+    <p class="note" id="projectDetailNote">Project details are provided for context. Contact me to discuss implementation.</p>
+  </div>
+</div>
+
+<!-- AI chat -->
+<button class="chat-fab" id="chatFab" aria-label="Open AI chat" aria-expanded="false" aria-controls="chat">💬</button>
+<section class="chat glass" id="chat" aria-hidden="true" inert>
+  <header><b>Ask about Raian</b><button id="chatClose" aria-label="Close chat">×</button></header>
+  <div class="chat-log" id="chatLog"><div class="msg bot">Welcome. I am Raian’s AI assistant. Ask me about his skills, education, or projects in English or Bangla.</div></div>
+  <form id="chatForm"><input id="chatInput" maxlength="1000" placeholder="Type a message…" autocomplete="off"><button class="btn btn-sm">Send</button></form>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>
